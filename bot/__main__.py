@@ -82,14 +82,14 @@ async def stats(_, message):
         'Clone'    : config_dict.get('CLONE_LIMIT',    '∞'),
         'Mega'     : config_dict.get('MEGA_LIMIT',     '∞'),
         'User task': config_dict.get('USER_MAX_TASKS', '∞')}
-    system_info = f'<b>{quote}</b>\n\n'\
-        f'<code>• Bot uptime :</code> {currentTime}\n'\
-        f'<code>• Sys uptime :</code> {osUptime}\n'\
-        f'<code>• CPU usage  :</code> {cpuUsage}%\n'\
-        f'<code>• RAM usage  :</code> {memory.percent}%\n'\
-        f'<code>• Disk usage :</code> {disk}%\n'\
-        f'<code>• Free space :</code> {get_readable_file_size(free)}\n'\
-        f'<code>• Total space:</code> {get_readable_file_size(total)}\n\n'
+    system_info = f'<b><a href="https://t.me/Reaperzclub">Powered by Reapers-Club</a></b>\n\n'\
+        f'<code>Bot uptime :</code> {currentTime}\n'\
+        f'<code>Sys uptime :</code> {osUptime}\n'\
+        f'<code>CPU usage  :</code> {cpuUsage}%\n'\
+        f'<code>RAM usage  :</code> {memory.percent}%\n'\
+        f'<code>Disk usage :</code> {disk}%\n'\
+        f'<code>Free space :</code> {get_readable_file_size(free)}\n'\
+        f'<code>Total space:</code> {get_readable_file_size(total)}\n\n'
             
     limitations = f'<b>LIMITATIONS</b>\n\n'
     
@@ -260,7 +260,7 @@ async def main():
     bot.add_handler(MessageHandler(bot_help, filters=command(BotCommands.HelpCommand) & CustomFilters.authorized))
     bot.add_handler(MessageHandler(stats, filters=command(BotCommands.StatsCommand) & CustomFilters.authorized))
     bot.add_handler(CallbackQueryHandler(AeonCallback, filters=regex(r'^aeon')))
-    LOGGER.info("Bot Started!")
+    LOGGER.info("Reaper Bot Started!")
     signal(SIGINT, exit_clean_up)
 
 bot.loop.run_until_complete(main())
