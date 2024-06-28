@@ -241,7 +241,7 @@ def get_readable_message():
         else:
             msg += f"<blockquote>Size: {download.size()}"
         msg += f"\n<b>➪ᴇʟᴀᴘꜱᴇᴅ</b>: {get_readable_time(time() - download.message.date.timestamp())}</blockquote>"
-        msg += f"\n<blockquote>/stop_{download.gid()[:8]}</blockquote>\n\n"
+        msg += f"\n<b>➪🔴</b>:/stop_{download.gid()[:8]}</blockquote>\n\n"
     if len(msg) == 0:
         return None, None
     if tasks > STATUS_LIMIT:
