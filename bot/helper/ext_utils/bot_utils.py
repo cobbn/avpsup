@@ -251,7 +251,7 @@ def get_readable_message():
         buttons.ibutton("Next", "status nex")
         button = buttons.build_menu(3)
     msg += f"<b>➪ Tasks</b>: {tasks} | <b>🔥ᴜᴘᴛɪᴍᴇ</b>: {currentTime} | <b>🆓</b>: {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
-return msg, button
+    return msg, button
 
 
 def text_to_bytes(size_text):
