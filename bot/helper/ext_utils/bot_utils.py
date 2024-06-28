@@ -250,10 +250,8 @@ def get_readable_message():
         buttons.ibutton(f"{PAGE_NO}/{PAGES}", "status ref")
         buttons.ibutton("Next", "status nex")
         button = buttons.build_menu(3)
-    msg += f"<b>➪ Tasks</b>: {tasks}{bmax_task}"
-    msg += f"\n<b>➪ 🔥ᴜᴘᴛɪᴍᴇ</b>: {currentTime}"
-    msg += f"\n<b>➪ 🆓</b>: {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
-    return msg, button
+    msg += f"<b>➪ Tasks</b>: {tasks} | <b>🔥ᴜᴘᴛɪᴍᴇ</b>: {currentTime} | <b>🆓</b>: {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
+return msg, button
 
 
 def text_to_bytes(size_text):
