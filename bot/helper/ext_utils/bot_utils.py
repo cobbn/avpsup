@@ -199,7 +199,7 @@ def progress_bar(pct):
         p_str += partial_blocks[cPart]
     p_str += empty_block * (10 - cFull - (1 if cPart > 0 else 0))
 
-    return f"[{p_str}] {p:.2f}%"
+    return f"[{p_str}]
 
 
 def source(self):
