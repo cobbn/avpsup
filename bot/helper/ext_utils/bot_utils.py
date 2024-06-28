@@ -223,7 +223,7 @@ def get_readable_message():
         msg += f"<b>{download.status()}:</b> {escape(f'{download.name()}')}\n"
         msg += f"by {source(download)}\n"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_PROCESSING]:
-            msg += f"<blockquote><code>{progress_bar(download.progress())}</code> {download.progress()}"
+            msg += f"<code>{progress_bar(download.progress())}</code> {download.progress()}"
             msg += f"\n{download.processed_bytes()} of {download.size()}"
             msg += f"\n<b>➪ꜱᴘᴇᴇᴅ</b>: {download.speed()}"
             msg += f'\n<b>➪ᴇꜱᴛɪᴍᴀᴛᴇᴅ</b>: {download.eta()}'
@@ -233,7 +233,7 @@ def get_readable_message():
                 except:
                     pass
         elif download.status() == MirrorStatus.STATUS_SEEDING:
-            msg += f"<blockquote>Size: {download.size()}"
+            msg += f"\nSize: {download.size()}"
             msg += f"\nSpeed: {download.upload_speed()}"
             msg += f"\nUploaded: {download.uploaded_bytes()}"
             msg += f"\nRatio: {download.ratio()}"
