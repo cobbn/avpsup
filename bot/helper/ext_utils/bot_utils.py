@@ -188,13 +188,18 @@ def progress_bar(pct):
     if isinstance(pct, str):
         pct = float(str(pct).strip('%'))
     p = min(max(pct, 0), 100)
-    cFull = int(p // 8)
-    cPart = int(p % 8 - 1)
-    p_str = '■' * cFull
-    if cPart >= 0:
-        p_str += ['▤', '▥', '▦', '▧', '▨', '▩', '■'][cPart]
-    p_str += '□' * (12 - cFull)
-    return f"[{p_str}]"
+    cFull = int(p // 10)
+    cPart = int(p % 10 // 1.25)  # Adjust for a more granular partial fill
+    full_block = '▓'
+    partial_blocks = ['░', '▒', '▓', '▓', '▓', '▓', '▓', '▓']
+    empty_block = '░'
+
+    p_str = full_block * cFull
+    if cPart > 0:
+        p_str += partial_blocks[cPart]
+    p_str += empty_block * (10 - cFull - (1 if cPart > 0 else 0))
+
+    return f"[{p_str}] {p:.2f}%"
 
 
 def source(self):
