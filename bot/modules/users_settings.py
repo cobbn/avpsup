@@ -49,7 +49,7 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
         buttons.ibutton("Leech", f"userset {user_id} leech")
         if user_dict and any(key in user_dict for key in ['prefix', 'suffix', 'remname', 'ldump', 'yt_opt', 'media_group', 'rclone', 'thumb', 'as_doc', 'metadata', 'attachment']):
             buttons.ibutton("Reset", f"userset {user_id} reset_all")
-        buttons.ibutton("Close", f"userset {user_id} close")
+        buttons.ibutton("✘", f"userset {user_id} close")
         text = f'<b>User Settings for {name}</b>'
         button = buttons.build_menu(2)
     elif key == 'universal':
@@ -72,14 +72,14 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
 
 
         text = f'<b>Universal Settings for {name}</b>\n\n'
-        text += f'<b>• YT-DLP Options:</b> <b><code>{ytopt}</code></b>\n'
-        text += f'<b>• Prefix:</b> <code>{prefix}</code>\n'
-        text += f'<b>• Suffix:</b> <code>{suffix}</code>\n'
-        text += f'<b>• Metadata:</b> <code>{metadata}</code>\n'
-        text += f'<b>• Attachment:</b> <code>{attachment}</code>\n'
-        text += f'<b>• Remname:</b> <code>{remname}</code>'
-        buttons.ibutton("Back", f"userset {user_id} back", "footer")
-        buttons.ibutton("Close", f"userset {user_id} close", "footer")
+        text += f'<b>➪ YT-DLP Options:</b> <b><code>{ytopt}</code></b>\n'
+        text += f'<b>➪ Prefix:</b> <code>{prefix}</code>\n'
+        text += f'<b>➪ Suffix:</b> <code>{suffix}</code>\n'
+        text += f'<b>➪ Metadata:</b> <code>{metadata}</code>\n'
+        text += f'<b>➪ Attachment:</b> <code>{attachment}</code>\n'
+        text += f'<b>➪ Remname:</b> <code>{remname}</code>'
+        buttons.ibutton("⬅", f"userset {user_id} back", "footer")
+        buttons.ibutton("✘", f"userset {user_id} close", "footer")
         button = buttons.build_menu(2)
     elif key == 'mirror':
         buttons.ibutton("RClone", f"userset {user_id} rcc")
@@ -89,11 +89,11 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
         buttons.ibutton("User TDs", f"userset {user_id} user_tds")
 
         text = f'<b>Mirror Settings for {name}</b>\n\n'
-        text += f'<b>• Rclone Config:</b> {rccmsg}\n'
-        text += f'<b>• User TD Mode:</b> {tds_mode}'
+        text += f'<b>➪ Rclone Config:</b> {rccmsg}\n'
+        text += f'<b>➪ User TD Mode:</b> {tds_mode}'
 
-        buttons.ibutton("Back", f"userset {user_id} back", "footer")
-        buttons.ibutton("Close", f"userset {user_id} close", "footer")
+        buttons.ibutton("⬅", f"userset {user_id} back", "footer")
+        buttons.ibutton("✘", f"userset {user_id} close", "footer")
         button = buttons.build_menu(2)
     elif key == 'leech':
         if user_dict.get('as_doc', False) or 'as_doc' not in user_dict and config_dict['AS_DOCUMENT']:
@@ -124,13 +124,13 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
 
         SPLIT_SIZE = '4GB' if IS_PREMIUM_USER else '2GB'
         text = f'<b>Leech Settings for {name}</b>\n\n'
-        text += f'<b>• Leech split size:</b> {SPLIT_SIZE}\n'
-        text += f'<b>• Leech Type:</b> {ltype}\n'
-        text += f'<b>• Custom Thumbnail:</b> {thumbmsg}\n'
-        text += f'<b>• Media Group:</b> {media_group}\n'
-        text += f'<b>• Leech Caption:</b> <code>{escape(lcaption)}</code>\n'
-        text += f'<b>• Leech Dump:</b> <code>{ldump}</code>\n'
-        text += f'<b>• MediaInfo Mode:</b> <code>{mediainfo}</code>'
+        text += f'<b>➪ Leech split size:</b> {SPLIT_SIZE}\n'
+        text += f'<b>➪ Leech Type:</b> {ltype}\n'
+        text += f'<b>➪ Custom Thumbnail:</b> {thumbmsg}\n'
+        text += f'<b>➪ Media Group:</b> {media_group}\n'
+        text += f'<b>➪ Leech Caption:</b> <code>{escape(lcaption)}</code>\n'
+        text += f'<b>➪ Leech Dump:</b> <code>{ldump}</code>\n'
+        text += f'<b>➪ MediaInfo Mode:</b> <code>{mediainfo}</code>'
 
         buttons.ibutton("Back", f"userset {user_id} back", "footer")
         buttons.ibutton("Close", f"userset {user_id} close", "footer")
