@@ -192,7 +192,7 @@ def progress_bar(pct):
     cPart = int(p % 10 // 1.25)  # Adjust for a more granular partial fill
     full_block = '▓'
     partial_blocks = ['░', '▒', '▓', '▓', '▓', '▓', '▓', '▓']
-    empty_block = '░'
+    empty_block = ''
 
     p_str = full_block * cFull
     if cPart > 0:
