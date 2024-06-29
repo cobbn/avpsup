@@ -194,18 +194,14 @@ def progress_bar(pct):
     partial_blocks = ['░', '▒', '▓', '▓', '▓', '▓', '▓', '▓']
     empty_block = '░'
 
-    # Create the full part of the progress bar with links
-    p_str = ''.join([f"[{full_block}](https://t.me/about_ben)" for _ in range(cFull)])
-
-    # Add the partial block if it exists
+    p_str = full_block * cFull
     if cPart > 0:
-        p_str += f"[{partial_blocks[cPart]}](https://t.me/about_ben)"
+        p_str += partial_blocks[cPart]
+    p_str += empty_block * (10 - cFull - (1 if cPart > 0 else 0))
 
-    # Fill the remaining part of the bar with empty blocks with links
-    p_str += ''.join([f"[{empty_block}](https://t.me/about_ben)" for _ in range(10 - cFull - (1 if cPart > 0 else 0))])
+    return f"[{p_str}] {p:.2f}%"
 
-    return f"{p_str} {p:.2f}%"
-    
+
 
 
 def source(self):
