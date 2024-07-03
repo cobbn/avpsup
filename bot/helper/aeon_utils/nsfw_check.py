@@ -2,7 +2,34 @@ from bot import LOGGER
 from re import IGNORECASE, search, escape
 
 
-nsfw_keywords = []
+nsfw_keywords = [
+    "porssfcsdn",
+    "onlyfaddgdns",
+    "nsfddddw",
+    "Brazzdddders",
+    "aduffdddlt",
+    "xndddggesdxx",
+    "xvidxxdddeos",
+    "nsvhkkehejensnfwcherry",
+    "harhhhjvvdcore",
+    "Porhjvvhbnhub",
+    "xvigvgjghgdeos2",
+    "yougghjggporn",
+    "pohhhhhrnrip",
+    "phhlahhyboy",
+    "hejkklhvvbntai",
+    "erijjjjotica",
+    "blojjioiwjob",
+    "reggghhjdtube",
+    "strnbggggipchat",
+    "camnnnnngirl",
+    "nudnnnnne",
+    "fennnnntish",
+    "cuchjjjbkold",
+    "owweergy",
+    "horrrrny",
+    "swingersrrr",
+]
 
 
 def isNSFW(text):
