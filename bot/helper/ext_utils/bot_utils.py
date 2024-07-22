@@ -77,18 +77,18 @@ PAGE_NO = 1
 STATUS_LIMIT = 6
 
 class MirrorStatus:
-    STATUS_UPLOADING = "🚀 𝗨𝗽𝗹𝗼𝗮𝗱𝗶𝗻𝗴 🚀"
-    STATUS_DOWNLOADING = "⬇️ 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗶𝗻𝗴 ⬇️"
-    STATUS_CLONING = "🧬 𝓒𝓵𝓸𝓷𝓲𝓷𝓰 🧬"
-    STATUS_QUEUEDL = "🕒 𝔻𝕃 𝕢𝕦𝕖𝕦𝕖𝕕 🕒"
-    STATUS_QUEUEUP = "🕒 𝕌𝕃 𝕢𝕦𝕖𝕦𝕖𝕕 🕒"
-    STATUS_PAUSED = "⏸️ 𝗣𝗮𝘂𝘀𝗲𝗱 ⏸️"
-    STATUS_ARCHIVING = "🗄️ 𝓐𝓻𝓬𝓱𝓲𝓿𝓲𝓷𝓰 🗄️"
-    STATUS_EXTRACTING = "📦 𝐸𝑥𝑡𝑟𝑎𝑐𝑡𝑖𝑛𝑔 📦"
-    STATUS_SPLITTING = "🔪 𝕊𝕡𝕝𝕚𝕥𝕥𝕚𝕟𝕘 🔪"
-    STATUS_CHECKING = "✅ 𝒞𝒽𝑒𝒸𝓀𝒰𝓅 ✅"
-    STATUS_SEEDING = "🌱 𝒮𝑒𝑒𝒹𝒾𝓃𝑔 🌱"
-    STATUS_PROCESSING = "🔄 𝑃𝓇𝑜𝒸𝑒𝓈𝓈𝒾𝓃𝑔 🔄"
+    STATUS_UPLOADING = "𝗨𝗽𝗹𝗼𝗮𝗱𝗶𝗻𝗴"
+    STATUS_DOWNLOADING = "𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗶𝗻𝗴"
+    STATUS_CLONING = "𝓒𝓵𝓸𝓷𝓲𝓷𝓰"
+    STATUS_QUEUEDL = "𝔻𝕃 𝕢𝕦𝕖𝕦𝕖𝕕"
+    STATUS_QUEUEUP = "𝕌𝕃 𝕢𝕦𝕖𝕦𝕖𝕕"
+    STATUS_PAUSED = "𝗣𝗮𝘂𝘀𝗲𝗱"
+    STATUS_ARCHIVING = "𝓐𝓻𝓬𝓱𝓲𝓿𝓲𝓷𝓰"
+    STATUS_EXTRACTING = "𝐸𝑥𝑡𝑟𝑎𝑐𝑡𝑖𝑛𝑔"
+    STATUS_SPLITTING = "𝕊𝕡𝕝𝕚𝕥𝕥𝕚𝕟𝕘"
+    STATUS_CHECKING = "𝒞𝒽𝑒𝒸𝓀𝒰𝓅"
+    STATUS_SEEDING = "𝒮𝑒𝑒𝒹𝒾𝓃𝑔"
+    STATUS_PROCESSING = "𝑃𝓇𝑜𝒸𝑒𝓈𝓈𝒾𝓃𝑔"
 
 
 class setInterval:
@@ -209,7 +209,7 @@ def source(self):
 
 
 def get_readable_message():
-    msg = '<b><a href="https://t.me/Reaperzclub">Reapers-Club</a></b>\n\n'
+    msg = '<b><a href="https://t.me/Reaperzclub">Powered By Reapers-Club</a></b>\n\n'
     button = None
     tasks = len(download_dict)
     currentTime = get_readable_time(time() - botStartTime)
@@ -222,9 +222,9 @@ def get_readable_message():
         globals()['STATUS_START'] = STATUS_LIMIT * (PAGES - 1)
         globals()['PAGE_NO'] = PAGES
     for download in list(download_dict.values())[STATUS_START:STATUS_LIMIT+STATUS_START]:
-        msg += f"<b>{download.status()}:</b> {escape(f'{download.name()}')} | {download.speed()}\n"
+        msg += f"<b>{download.status()}:{escape(f'{download.name()}')}</b>\n"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_PROCESSING]:
-            msg += f"<code>{progress_bar(download.progress())}</code> {download.progress()}"
+            msg += f"<b>{progress_bar(download.progress())} | {download.speed()}</b>"
             msg += f"\n<b>{download.processed_bytes()} of {download.size()}</b>"
             msg += f'\n<b>➪ᴇꜱᴛɪᴍᴀᴛᴇᴅ</b>: {download.eta()} <b>| {source(download)}</b>'
             if hasattr(download, 'seeders_num'):
@@ -240,7 +240,7 @@ def get_readable_message():
             msg += f"\nTime: {download.seeding_time()}"
         else:
             msg += f"<blockquote>Size: {download.size()}"
-        msg += f"\n<b>➪🔴</b>:/stop_{download.gid()[:8]}</blockquote>\n\n"
+        msg += f"\n<b>➪🔴:/stop_{download.gid()[:8]}</b></blockquote>\n\n"
     if len(msg) == 0:
         return None, None
     if tasks > STATUS_LIMIT:
