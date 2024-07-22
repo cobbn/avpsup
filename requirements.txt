@@ -41,4 +41,4 @@ tgcrypto
 uvloop
 xattr
 yt-dlp==2023.10.07
-Pyrogram 2.0.77
+pyrofork==2.2.11s
