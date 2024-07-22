@@ -27,7 +27,7 @@ async def change_metadata(file, dirpath, key):
         return file
 
     cmd = [
-        'xtra', '-y', '-i', full_file_path, '-c', 'copy',
+        'ffmpeg', '-y', '-i', full_file_path, '-c', 'copy',
         '-metadata:s:v:0', f'title={key}',
         '-metadata', f'title={key}',
         '-metadata', 'copyright=',
@@ -113,7 +113,7 @@ async def add_attachment(file, dirpath, attachment_path):
         mime_type = 'application/octet-stream'
 
     cmd = [
-        'xtra', '-y', '-i', full_file_path,
+        'ffmpeg', '-y', '-i', full_file_path,
         '-attach', attachment_path,
         '-metadata:s:t', f'mimetype={mime_type}',
         '-c', 'copy', '-map', '0', temp_file_path
